@@ -1,0 +1,28 @@
+{
+  "policy_id": "CUSTOMER_SUPPORT_POLICY",
+  "version": "1.0.0",
+  "name": "Customer Support Agent Governance Policy",
+  "application_id": "customer_support_app",
+  "risk_tolerance": {
+    "composite_risk_block_threshold": 0.70,
+    "composite_risk_recheck_threshold": 0.45,
+    "cost_deviation_reroute_threshold": 4.0
+  },
+  "business_impact_rules": {
+    "l3_threshold": 75.0,
+    "high_impact_confidence_floor": 0.60,
+    "high_risk_action_types": ["UPDATE_CREDENTIALS", "DELETE_DATA"],
+    "irreversible_actions_l3": true
+  },
+  "assurance_thresholds": {
+    "l0_cost_max": 0.02,
+    "l1_composite_risk_max": 0.45
+  },
+  "weights": {
+    "w_perf": 0.40,
+    "w_cost": 0.10,
+    "w_resp": 0.40,
+    "w_impact": 0.10
+  },
+  "fail_closed": false
+}
