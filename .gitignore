@@ -53,5 +53,7 @@ build/
 *.tsbuildinfo
 *.log
 .DS_Store
-Thumbs.db
+# Personal Notes & Recording Scripts
+DEMO_VIDEO_SCRIPT.md
+
 
