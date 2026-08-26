@@ -70,3 +70,18 @@ def simulate_tampering(db: Session = Depends(get_db)):
         "audit_integrity": "VALID" if is_valid else "BROKEN",
         "verification_message": msg
     }
+
+@router.post("/reset")
+def reset_audit_chain(db: Session = Depends(get_db)):
+    """Re-computes and restores valid cryptographic SHA-256 hash chain links."""
+    events = DBService.get_all_audit_events(db)
+    prev_hash = AuditService.GENESIS_HASH
+    
+    for evt in events:
+        evt.previous_event_hash = prev_hash
+        canonical_str = f"{evt.event_id}|{evt.request_id}|{evt.application_id}|{evt.agent_id}|{evt.user_id}|{evt.action_type}|{evt.assurance_level}|{evt.decision}|{evt.policy_id}|{evt.policy_version}|{evt.event_type}|{evt.payload_json}"
+        evt.current_event_hash = AuditService.compute_event_hash(canonical_str, prev_hash)
+        prev_hash = evt.current_event_hash
+
+    db.commit()
+    return {"status": "SUCCESS", "message": "Audit chain re-anchored. AUDIT INTEGRITY: VALID"}

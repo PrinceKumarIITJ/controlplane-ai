@@ -89,6 +89,26 @@ class ApprovalTokenPayload(BaseModel):
     expires_at: int
 
 class HumanReviewRequest(BaseModel):
-    reviewer_id: str = Field(..., example="usr_reviewer_01")
+    reviewer_id: str = Field(..., json_schema_extra={"example": "usr_reviewer_01"})
     review_action: ReviewAction
-    reason: Optional[str] = Field(None, example="Verified invoice vendor details.")
+    reason: Optional[str] = Field(None, json_schema_extra={"example": "Verified invoice vendor details."})
+
+class AIResponsePayload(BaseModel):
+    response_id: str = Field(..., json_schema_extra={"example": "resp_99812"})
+    prompt: str = Field(..., json_schema_extra={"example": "Can I approve a 50 lakh payment directly?"})
+    response_text: str = Field(..., json_schema_extra={"example": "The finance policy allows a ₹50 lakh payment without additional approval."})
+    evidence_context: Optional[list] = Field(default_factory=list)
+    application_id: str = Field(default="finance_app_prod")
+    model: str = Field(default="gpt-4o")
+
+class ResponseGovernanceResponse(BaseModel):
+    request_id: str
+    response_id: str
+    assurance_level: AssuranceLevel
+    risk_assessment: RiskAssessment
+    grounding_status: str
+    decision: CanonicalDecision
+    warning: bool
+    policy_context: PolicyContext
+    reason: str
+    intervention: str
