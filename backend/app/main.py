@@ -1,5 +1,9 @@
 import os
 import sys
+
+# Ensure backend directory is in sys.path so 'import app' works from any CWD
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
@@ -43,4 +47,4 @@ def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("app.main:app", host=settings.HOST, port=settings.PORT, reload=True)
+    uvicorn.run(app, host=settings.HOST, port=settings.PORT)
