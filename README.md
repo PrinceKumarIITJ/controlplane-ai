@@ -249,18 +249,13 @@ python -m pytest backend/tests/security/test_action_guard.py -v
 
 ---
 
-## 14. Demo Guide
-Refer to [DEMO_GUIDE.md](file:///c:/Users/Prince%20Kumar/OneDrive/Documents/controlplane-ai/DEMO_GUIDE.md) for a step-by-step 3 to 5 minute presentation script detailing exactly what to click, what to say, and what expected outcome proves each concept.
-
----
-
-## 15. Documentation Index
+## 14. Documentation Index
 * [ARCHITECTURE.md](file:///c:/Users/Prince%20Kumar/OneDrive/Documents/controlplane-ai/ARCHITECTURE.md): Full technical architecture and risk engine formulas.
-* [DEMO_GUIDE.md](file:///c:/Users/Prince%20Kumar/OneDrive/Documents/controlplane-ai/DEMO_GUIDE.md): Step-by-step evaluator presentation guide.
 * [EVALUATION.md](file:///c:/Users/Prince%20Kumar/OneDrive/Documents/controlplane-ai/EVALUATION.md): Verified 80-case benchmark metrics and mathematical formulas.
 * [LIMITATIONS.md](file:///c:/Users/Prince%20Kumar/OneDrive/Documents/controlplane-ai/LIMITATIONS.md): Prototype boundaries and production integration roadmap.
 * [BUSINESS_PROPOSAL_INPUT.md](file:///c:/Users/Prince%20Kumar/OneDrive/Documents/controlplane-ai/docs/BUSINESS_PROPOSAL_INPUT.md): Supporting material for executive business proposals.
 * [SUBMISSION_CHECKLIST.md](file:///c:/Users/Prince%20Kumar/OneDrive/Documents/controlplane-ai/docs/SUBMISSION_CHECKLIST.md): Submission readiness checklist.
+
 
 ---
 
